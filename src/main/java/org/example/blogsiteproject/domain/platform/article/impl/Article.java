@@ -1,4 +1,17 @@
 package org.example.blogsiteproject.domain.platform.article.impl;
 
-public class Article {
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+import org.example.blogsiteproject.library.rest.AbstractEntity;
+
+@Getter
+@Setter
+@Entity
+public class Article extends AbstractEntity {
+    private String title;
+    private String content;
+
+    private String userId;
+    private String categoryId;
 }

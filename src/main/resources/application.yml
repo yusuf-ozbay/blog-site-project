@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: blog-site-project
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog-site-project?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 12345678asd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          format-sql: true

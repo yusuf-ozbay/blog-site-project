@@ -1,5 +1,7 @@
 package org.example.blogsiteproject.domain.platform.category.api;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +15,7 @@ public interface CategoryService {
 
     void delete(String id);
 
-    List<CategoryDto> getAll();
+    Page<CategoryDto> getAll(Pageable pageable);
 
     CategoryDto update(String id, CategoryDto dto);
 

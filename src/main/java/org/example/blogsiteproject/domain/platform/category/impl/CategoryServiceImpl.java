@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.example.blogsiteproject.domain.platform.category.api.CategoryDto;
 import org.example.blogsiteproject.domain.platform.category.api.CategoryService;
+import org.example.blogsiteproject.library.utils.PageUtil;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +32,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryDto> getAll() {
-        return repository.findAll().stream().map(CategoryMapper::toDto).toList();
+    public Page<CategoryDto> getAll(Pageable pageable) {
+        return PageUtil.pageToDto(repository.findAll(pageable), CategoryMapper::toDto );
     }
 
     @Override

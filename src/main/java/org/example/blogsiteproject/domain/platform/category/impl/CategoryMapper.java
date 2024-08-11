@@ -16,6 +16,8 @@ public class CategoryMapper {
         return CategoryDto.builder()
                 .name(category.getName())
                 .id(category.getId())
+                .created(category.getCreated())
+                .modified(category.getModified())
                 .build();
     }
 }

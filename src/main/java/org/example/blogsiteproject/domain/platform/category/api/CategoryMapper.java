@@ -3,9 +3,8 @@ package org.example.blogsiteproject.domain.platform.category.api;
 
 import org.example.blogsiteproject.domain.platform.category.web.CategoryRequest;
 import org.example.blogsiteproject.domain.platform.category.web.CategoryResponse;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.example.blogsiteproject.library.utils.PageUtil;
+import org.springframework.data.domain.Page;
 
 public class CategoryMapper {
 
@@ -16,6 +15,8 @@ public class CategoryMapper {
         return CategoryResponse.builder()
                 .id(dto.getId())
                 .name(dto.getName())
+                .created(dto.getCreated())
+                .modified(dto.getModified())
                 .build();
     }
 
@@ -25,12 +26,8 @@ public class CategoryMapper {
                 .build();
     }
 
-    public static List<CategoryResponse> toResponses(List<CategoryDto> categoryDtoList) {
-        List<CategoryResponse> list = new ArrayList<>();
-        for (CategoryDto categoryDto : categoryDtoList) {
-            CategoryResponse response = toResponse(categoryDto);
-            list.add(response);
-        }
-        return list;
+    public static Page<CategoryResponse> toPageResponse(Page<CategoryDto> dtos) {
+        return PageUtil.pageToDto(dtos, CategoryMapper::toResponse);
     }
+
 }

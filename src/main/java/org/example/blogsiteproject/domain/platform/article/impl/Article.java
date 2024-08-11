@@ -11,6 +11,8 @@ import org.example.blogsiteproject.library.rest.AbstractEntity;
 public class Article extends AbstractEntity {
     private String title;
     private String content;
+    private int likeCount;
+    private int status;
 
     private String userId;
     private String categoryId;

@@ -1,6 +1,7 @@
 package org.example.blogsiteproject.domain.auth.user.web;
 
 import lombok.*;
+import org.example.blogsiteproject.domain.auth.user.impl.UserType;
 
 @Getter
 @Setter
@@ -12,4 +13,5 @@ public class UserRequest {
     private String email;
     private String password;
     private String phoneNumber;
+    private UserType userType;
 }

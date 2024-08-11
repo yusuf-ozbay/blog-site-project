@@ -10,8 +10,8 @@ public interface UserService {
     UserDto save(UserDto dto);
     UserDto getById(String id);
 
-
     Page<UserDto> getAll(Pageable pageable);
+
     void delete(String id);
     UserDto update(String id, UserDto dto);
 

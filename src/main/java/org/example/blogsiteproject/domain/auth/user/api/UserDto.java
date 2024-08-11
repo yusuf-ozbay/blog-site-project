@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.example.blogsiteproject.domain.auth.user.impl.UserType;
+import org.example.blogsiteproject.library.rest.BaseController;
 
 import java.util.Date;
 
@@ -19,4 +21,6 @@ public class UserDto {
     private final String email;
     private final String password;
     private final String phoneNumber;
+    private final UserType userType;
+    private final Boolean active;
 }

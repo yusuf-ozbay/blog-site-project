@@ -21,6 +21,7 @@ public class UserMapper {
                 .password(request.getPassword())
                 .email(request.getEmail())
                 .userName(request.getUserName())
+                .userType(request.getUserType())
                 .build();
     }
 
@@ -33,6 +34,8 @@ public class UserMapper {
                 .modified(dto.getModified())
                 .phoneNumber(dto.getPhoneNumber())
                 .password(dto.getPassword())
+                .userType(dto.getUserType())
+                .active(dto.getActive())
                 .build();
     }
 

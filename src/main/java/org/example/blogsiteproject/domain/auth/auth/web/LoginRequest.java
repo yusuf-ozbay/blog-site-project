@@ -1,4 +1,8 @@
 package org.example.blogsiteproject.domain.auth.auth.web;
 
-public class LoginRequest {
+
+public record LoginRequest (
+        String email,
+        String password
+) {
 }

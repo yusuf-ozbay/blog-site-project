@@ -1,4 +1,8 @@
 package org.example.blogsiteproject.domain.auth.auth.web;
 
-public class RegisterRequest {
+
+public record RegisterRequest (
+        String email,
+        String password
+){
 }

@@ -21,6 +21,7 @@ public class ArticleMapper {
                 .modified(dto.getModified())
                 .created(dto.getCreated())
                 .id(dto.getId())
+                .likeCount(dto.getLikeCount())
                 .category(dto.getCategory())
                 .user(dto.getUser())
                 .build();
@@ -28,21 +29,16 @@ public class ArticleMapper {
 
     public static ArticleDto toDto(ArticleRequest request) {
         return ArticleDto.builder()
-                .category(CategoryDto.builder().id((request.getCategoryId())).build())
+
                 .title(request.getTitle())
                 .content(request.getContent())
-                .user(UserDto.builder().id(request.getUserId()).build())
+                .category(CategoryDto.builder()
+                        .id((request.getCategoryId())).build())
+                .user(UserDto.builder()
+                        .id(request.getUserId()).build())
                 .build();
     }
 
-    public static List<ArticleResponse> toResponses(List<ArticleDto> articleDtoList) {
-        List<ArticleResponse> list = new ArrayList<>();
-        for (ArticleDto articleDto : articleDtoList) {
-            ArticleResponse response = toResponse(articleDto);
-            list.add(response);
-        }
-        return list;
-    }
 
 
     public static Page<ArticleResponse> toPageResponse(Page<ArticleDto> articleDtos) {

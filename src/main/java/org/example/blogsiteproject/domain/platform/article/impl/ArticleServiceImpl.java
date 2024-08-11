@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +22,10 @@ public class ArticleServiceImpl  implements ArticleService {
     private final ArticalRepository repository;
     private final UserService userService;
     private final CategoryService categoryService;
+
+    public final int ARTICLE_STATUS_NONE = 0;
+    public final int ARTICLE_STATUS_DRAFT= 1;
+
     @Override
     public ArticleDto save(ArticleDto dto) {
         UserDto userDto = userService.getById(dto.getUser().getId());
@@ -54,6 +59,16 @@ public class ArticleServiceImpl  implements ArticleService {
     public Page<ArticleDto> getAll(Pageable pageable) {
         return PageToDto(repository.findAll(pageable));
     }
+
+    @Override
+    public List<ArticleDto> getByIds(List<String> articalIds) {
+        List<Article> articles=repository.findAllById(articalIds);
+        List<CategoryDto> categoryDtoList=categoryService.getByIds(articles.stream().map(Article::getCategoryId).collect(Collectors.toList()));
+        List<UserDto> userDtoList=userService.getByIds(articles.stream().map(Article::getUserId).collect(Collectors.toList()));
+
+        return repository.findAllById(articalIds).stream().map(article -> ArticleMapper.toDto(article,userDtoList,categoryDtoList)).toList();
+    }
+
     public Page<ArticleDto> PageToDto(Page<Article> articles){
         List<String> categoryIds = articles.stream().map(Article::getCategoryId).toList();
         List<String> userIds = articles.stream().map(Article::getUserId).toList();

@@ -8,6 +8,7 @@ import org.example.blogsiteproject.domain.auth.user.api.UserDto;
 import org.example.blogsiteproject.domain.platform.category.api.CategoryDto;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,8 +20,10 @@ public class ArticleDto {
     private final String content;
     private final Date created;
     private final Date modified;
-
+    private final int likeCount;
+    private final int status;
 
     private final UserDto user;
     private final CategoryDto category;
+    private final List<String> categoryId;
 }

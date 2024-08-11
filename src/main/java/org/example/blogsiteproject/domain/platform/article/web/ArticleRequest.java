@@ -2,6 +2,8 @@ package org.example.blogsiteproject.domain.platform.article.web;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder

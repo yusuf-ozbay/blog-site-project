@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Builder
-public class CollecitonDto {
+public class CollectionDto {
 
     private final String id;
     private final String name;

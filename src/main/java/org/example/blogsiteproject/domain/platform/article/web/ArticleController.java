@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController extends BaseController {
 
     private final ArticleService service;
-    @PostMapping
+    @PostMapping("create")
     private Response<ArticleResponse> save(@RequestBody ArticleRequest request){
         return respond(ArticleMapper.toResponse(service.save(ArticleMapper.toDto(request))));
     }

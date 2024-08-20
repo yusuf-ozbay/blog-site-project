@@ -18,7 +18,7 @@ public class CategoryController extends BaseController {
 
     private final CategoryService service;
 
-    @PostMapping
+    @PostMapping("create")
     private Response<CategoryResponse> save(@RequestBody CategoryRequest request){
         return respond(CategoryMapper.toResponse(service.save(CategoryMapper.toDto(request))));
     }

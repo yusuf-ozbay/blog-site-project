@@ -15,11 +15,11 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class CommentResponse {
 
-    private String id;
-    private String content;
-    private Date created;
-    private Date modified;
-    private UserDto user;
-    private ArticleDto article;
+    private final String id;
+    private final String content;
+    private final Date created;
+    private final Date modified;
+    private final UserDto user;
+    private final ArticleDto article;
 
 }

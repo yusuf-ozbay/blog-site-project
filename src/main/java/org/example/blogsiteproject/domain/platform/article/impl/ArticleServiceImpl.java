@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class ArticleServiceImpl  implements ArticleService {
 
-    private final ArticalRepository repository;
+    private final ArticleRepository repository;
     private final UserService userService;
     private final CategoryService categoryService;
 
@@ -52,8 +52,26 @@ public class ArticleServiceImpl  implements ArticleService {
 
     @Override
     public ArticleDto update(String id, ArticleDto dto) {
-        return null;
+        // Mevcut article'ı id'ye göre bul
+        Article article = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Article not found"));
+
+        // Güncellenmiş User ve Category verilerini al
+        UserDto userDto = userService.getById(dto.getUser().getId());
+        CategoryDto categoryDto = categoryService.getById(dto.getCategory().getId());
+
+        // Article nesnesini DTO'dan gelen verilerle güncelle
+        article.setTitle(dto.getTitle());
+        article.setContent(dto.getContent());
+        article.setLikeCount(dto.getLikeCount());
+        article.setStatus(dto.getStatus());
+        article.setUserId(userDto.getId());
+        article.setCategoryId(categoryDto.getId());
+
+        // Güncellenmiş article'ı kaydet ve DTO'ya dönüştürüp geri döndür
+        return ArticleMapper.toDto(repository.save(article), userDto, categoryDto);
     }
+
 
     @Override
     public Page<ArticleDto> getAll(Pageable pageable) {

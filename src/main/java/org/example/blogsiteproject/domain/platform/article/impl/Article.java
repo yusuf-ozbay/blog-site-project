@@ -16,4 +16,6 @@ public class Article extends AbstractEntity {
 
     private String userId;
     private String categoryId;
+
+    //kategory id silinecek
 }

@@ -15,4 +15,6 @@ public class ArticleRequest {
 
     private String userId;
     private String categoryId;
+
+    //list olacak
 }

@@ -22,5 +22,5 @@ public class UserDto {
     private final String password;
     private final String phoneNumber;
     private final UserType userType;
-    private final Boolean active;
+    private final Boolean active;  //silinecek
 }

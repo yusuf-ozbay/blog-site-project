@@ -19,4 +19,7 @@ public class CollectionResponse {
     private final Date created;
     private final Date modified;
     private final UserDto user;
+
+
+    //id olarak dönecek user
 }

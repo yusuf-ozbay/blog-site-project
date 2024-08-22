@@ -11,4 +11,5 @@ public class AddArticleToCollectionRequest {
     private String articleId;
     private String userId;
     private String collectionId;
+    //user ıd silinebilir
 }

@@ -27,3 +27,6 @@ public class ArticleDto {
     private final CategoryDto category;
     private final List<String> categoryId;
 }
+
+//status silenecek
+//categoryDto liste dönecek ve id silinecek

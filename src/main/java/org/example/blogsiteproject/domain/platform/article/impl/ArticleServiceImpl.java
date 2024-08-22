@@ -23,8 +23,6 @@ public class ArticleServiceImpl  implements ArticleService {
     private final UserService userService;
     private final CategoryService categoryService;
 
-    public final int ARTICLE_STATUS_NONE = 0;
-    public final int ARTICLE_STATUS_DRAFT= 1;
 
     @Override
     public ArticleDto save(ArticleDto dto) {
